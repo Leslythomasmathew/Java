@@ -32,8 +32,8 @@ public class StudentNumber
 		
 		
 		
-		int total=Student.getStudentCount();
-		System.out.println("Number of Students: " + total);
+		int total_number=Student.getStudentCount();
+		System.out.println("Number of Students: " + total_number);
 		
 		
 	}
