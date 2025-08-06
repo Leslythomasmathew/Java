@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+class PaymentGateWay {
+    public static void makePayment(String cardNumber, String expiryDate, String CVV) {
+        System.out.println("Thank you! Your order is confirmed.");
+        System.out.println("Transaction is completed using credit card: " + cardNumber);
+        System.out.println();
+    }
+
+    public static void makePayment(String UPIID) {
+        System.out.println("Thank you! Your order is confirmed.");
+        System.out.println("Transaction is completed using UPI: " + UPIID);
+        System.out.println();
+    }
+
+    public static void makePayment(double amount) {
+        System.out.println("Thank you! Your order is confirmed.");
+        System.out.println("You chose Cash On Delivery.");
+        System.out.println();
+    }
+}
+
+public class ECommerceApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose your preferred payment method:");
+        System.out.println("1. Credit Card");
+        System.out.println("2. UPI Method");
+        System.out.println("3. Cash On Delivery");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        switch (choice) {
+            case 1:
+                System.out.print("Enter Credit Card Number: ");
+                String cardNumber = scanner.nextLine();
+                System.out.print("Enter Expiry Date (MM/YY): ");
+                String expiryDate = scanner.nextLine();
+                System.out.print("Enter CVV: ");
+                String CVV = scanner.nextLine();
+                PaymentGateWay.makePayment(cardNumber, expiryDate, CVV);
+                break;
+
+            case 2:
+                System.out.print("Enter UPI ID: ");
+                String UPIID = scanner.nextLine();
+                PaymentGateWay.makePayment(UPIID);
+                break;
+
+            case 3:
+                System.out.print("Enter Amount: ");
+                double amount = scanner.nextDouble();
+                PaymentGateWay.makePayment(amount);
+                break;
+
+            default:
+                System.out.println("Invalid choice. Please try again.");
+        }
+
+        scanner.close();
+    }
+}
